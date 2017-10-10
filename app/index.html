@@ -12,7 +12,7 @@
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="/bower_components/materialize/dist/css/materialize.css" />
-    <link rel="stylesheet" href="/bower_components/animate.css/animate.css" />
+    <link rel="stylesheet" href="/bower_components/animate.css/animate.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -29,6 +29,8 @@
     <!-- endbuild -->
   </head>
   <body>
+    <div id="app">
+
     <!--[if IE]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -38,11 +40,11 @@
               <a href="#" class="brand-logo">E<span>2</span>W</a>
           </div>
           <ul id="language-select" class="dropdown-content">
-            <li><a href="#">PL</a></li>
-            <li><a href="#">RU</a></li>
-            <li><a href="#">UK</a></li>
+            <li><a href="#" @click="selectLanguage(langs.pl)">PL</a></li>
+            <li><a href="#" @click="selectLanguage(langs.ru)">RU</a></li>
+            <li><a href="#" @click="selectLanguage(langs.uk)">UK</a></li>
             <li class="divider"></li>
-            <li><a href="#">EN</a></li>
+            <li><a href="#" @click="selectLanguage(langs.en)">EN</a></li>
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="#">Главная</a></li>
@@ -77,20 +79,21 @@
         <div class="container">
           <div class="row">
               <div class="col">
-                <h3>Польза работы с нами</h3>
+                <h3 class="">Польза работы с нами</h3>
+                <p>{{ message[currentLocale] }}</p>
               </div>
             </div>
             <div class="row">
               <div class="col s4">
-                <img src="/images/svg/curriculum-1.svg" alt="" style="width: 100px;">
+                <img class="animated flipInX" src="/images/svg/curriculum-1.svg" alt="" style="width: 100px;">
                 <p>Zatrudnienie pracownika to poważny krok, dlatego dokładamy wszelkich starań, aby był to krok we właściwym kierunku. Ważne są umiejętności pracownika, oraz forma jego zatrudnienia, dogodna dla obu stron. Zapewniamy sprawdzonych i wyszkolonych pracowników oraz optymalizację kosztów zatrudnienia.</p>
               </div>
               <div class="col s4">
-                <img src="/images/svg/job-search.svg" alt="" style="width: 100px;">
+                <img class="animated flipInX" src="/images/svg/job-search.svg" alt="" style="width: 100px;">
                 <p>Mamy własne biura w Polsce jak i na Ukrainie. Ponadto współpracujemy z kilkunastoma ukraińskimi agencjami rekrutacyjnymi. Stawiamy bardzo wysokie wymagania pracownikom. Załatwiamy wszelkie formalności związane z pracą i pobytem w Polsce. Organizujemy przyjazd pracownika "pod drzwi" pracodawcy.</p>
               </div>
               <div class="col s4">
-                <img src="/images/svg/teamwork-1.svg" alt="" style="width: 100px;">
+                <img class="animated flipInX" src="/images/svg/teamwork-1.svg" alt="" style="width: 100px;">
                 <p>Dzięki naszym programom lojalnościowym dla pracowników możesz liczyć na stałą kadrę przy realizowaniu bieżących projektów i następnych. Nie tracisz czasu na doszkalaniu nowych pracowników oszczędzasz czas i pieniądze.</p>
               </div>
             </div>
@@ -101,21 +104,35 @@
         <div class="container">
           <div class="row">
             <div class="col s6">
-              <h3>Наши услуги</h3>
+              <h3 class="">Наши услуги</h3>
+            </div>
+            <div class="col s6">
+              <h3 class="center">Являемся участником</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s3">
               <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>Obsługa klienta</li>
+                <li>Obroty</li>
+                <li>Biuro pomocy</li>
+                <li>Wsparcie biurowe</li>
+                <li>Administracja</li>
+                <li>Bankowość</li>
               </ul>
             </div>
-            <div class="col s6"></div>
+            <div class="col s3">
+              <ul>
+                <li>Centrum telefoniczne</li>
+                <li>Rachunkowość</li>
+                <li>Zadowolenie</li>
+                <li>Długofalowa współpraca</li>
+                <li>Profesjonalne dobieranie pracowników.</li>
+              </ul>
+            </div>
+            <div class="col s6">
+              <img class="center" src="https://static.wixstatic.com/media/1c8430_bd17e53cf93b454db21cd1cf19fb8ebe~mv2.png/v1/fill/w_305,h_156,al_c,usm_0.66_1.00_0.01/1c8430_bd17e53cf93b454db21cd1cf19fb8ebe~mv2.png" alt="">
+            </div>
           </div>
         </div>
       </div>
@@ -123,7 +140,7 @@
     <footer>
       <p>©2017 by EAST2WEST все права сохранены.</p>
     </footer>
-    
+  </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -140,6 +157,8 @@
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/materialize/dist/js/materialize.js"></script>
+    <script src="/bower_components/vue/dist/vue.js"></script>
+    <script src="/bower_components/vuex/dist/vuex.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     
@@ -150,6 +169,7 @@
     
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
+    <script src="scripts/vue/vmain.js"></script>
     <!-- endbuild -->
   </body>
 </html>
