@@ -47,11 +47,11 @@
             <li><a href="#" @click="selectLanguage(langs.en)">EN</a></li>
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#">Главная</a></li>
-            <li><a href="#">Работникам</a></li>
-            <li><a href="#">Работадателям</a></li>
-            <li><a href="#">О нас</a></li>
-            <li><a class="dropdown-button" href="#!" data-activates="language-select">Выбор языка<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a href="#">{{menu_a[currentLocale]}}</a></li>
+            <li><a href="#">{{menu_b[currentLocale]}}</a></li>
+            <li><a href="#">{{menu_c[currentLocale]}}</a></li>
+            <li><a href="#">{{menu_d[currentLocale]}}</a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="language-select">{{menu_lang_select[currentLocale]}}</a></li>
           </ul>
        </div>
      </nav>
