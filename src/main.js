@@ -19,7 +19,10 @@ import './plugins/axios';
 import { i18n } from './plugins/vue-i18n';
 import { router } from './plugins/vue-router';
 import './plugins/vuex-router-sync';
-import './plugins/bootstrap';
+// import './plugins/bootstrap';
+import './plugins/jquery';
+import './plugins/materialize-css';
+import './plugins/animate-css';
 import './plugins/font-awesome';
 
 /* ============

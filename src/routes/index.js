@@ -53,6 +53,15 @@ export default [
       guest: true,
     },
   },
+  {
+    path: '/testpage',
+    name: 'testpage.index',
+    component: () => import('@/pages/TestPage/index'),
+
+    meta: {
+      auth: true,
+    },
+  },
 
   {
     path: '/',
